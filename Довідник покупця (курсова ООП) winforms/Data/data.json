@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Molecule Man",
+    "address": "Biblika 19",
+    "phoneNumber": "+380506792901",
+    "specialization": "Sporting goods",
+    "ownershipForm": "Private property",
+    "workingHours": "10:00 - 21:00. Пн-Пт"
+  },
+    {
+      "name": "Molecule Man",
+      "address": "",
+      "phoneNumber": "Dan Jukes",
+      "specialization": "Radiation resistance",
+      "ownershipForm": "",
+      "workingHours": ""
+    },
+    {
+      "name": "Molecule Man",
+      "address": "",
+      "phoneNumber": "Dan Jukes",
+      "specialization": "Radiation resistance",
+      "ownershipForm": "",
+      "workingHours": ""
+    },
+    {
+      "name": "Molecule Man",
+      "address": "",
+      "phoneNumber": "Dan Jukes",
+      "specialization": "Radiation resistance",
+      "ownershipForm": "",
+      "workingHours": ""
+    }
+]
+
