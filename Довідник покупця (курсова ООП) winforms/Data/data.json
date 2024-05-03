@@ -1,35 +1,83 @@
 [
   {
-    "name": "Molecule Man",
-    "address": "Biblika 19",
-    "phoneNumber": "+380506792901",
-    "specialization": "Sporting goods",
-    "ownershipForm": "Private property",
-    "workingHours": "10:00 - 21:00. Пн-Пт"
+    "title": "АТБ",
+    "address": "Вул. Шевченка 19",
+    "phoneNumber": "+380501234567",
+    "specialization": "Food",
+    "ownershipForm": "Limited Liability Company",
+    "workingHours": "7:00 - 22:00. Пн-Нд"
   },
-    {
-      "name": "Molecule Man",
-      "address": "",
-      "phoneNumber": "Dan Jukes",
-      "specialization": "Radiation resistance",
-      "ownershipForm": "",
-      "workingHours": ""
-    },
-    {
-      "name": "Molecule Man",
-      "address": "",
-      "phoneNumber": "Dan Jukes",
-      "specialization": "Radiation resistance",
-      "ownershipForm": "",
-      "workingHours": ""
-    },
-    {
-      "name": "Molecule Man",
-      "address": "",
-      "phoneNumber": "Dan Jukes",
-      "specialization": "Radiation resistance",
-      "ownershipForm": "",
-      "workingHours": ""
-    }
+  {
+    "title": "Сільпо",
+    "address": "Вул. Павлова 4",
+    "phoneNumber": "+380671234567",
+    "specialization": "Food",
+    "ownershipForm": "Limited Liability Company",
+    "workingHours": "8:00 - 22:00. Пн-Нд"
+  },
+  {
+    "title": "Посад",
+    "address": "Вул. Миру 143",
+    "phoneNumber": "+380931234567",
+    "specialization": "Food",
+    "ownershipForm": "Limited Liability Company",
+    "workingHours": "7:00 - 23:00. Пн-Нд"
+  },
+  {
+    "title": "Alistar Sport",
+    "address": "Вул. Броварська 1",
+    "phoneNumber": "+380442345678",
+    "specialization": "Sport",
+    "ownershipForm": "Private Enterprise",
+    "workingHours": "3"
+  },
+  {
+    "title": "SportMarket",
+    "address": "Вул. Курбаса 51",
+    "phoneNumber": "+380992345678",
+    "specialization": "Sport",
+    "ownershipForm": "Private Enterprise",
+    "workingHours": "3"
+  },
+  {
+    "title": "Gomez",
+    "address": "Вул. Мала Гончарівка 47",
+    "phoneNumber": "+380972345678",
+    "specialization": "Sport",
+    "ownershipForm": "Limited Liability Company",
+    "workingHours": "3"
+  },
+  {
+    "title": "Stylus",
+    "address": "Вул. Волонтерська 86a",
+    "phoneNumber": "+380322345678",
+    "specialization": "Electronic",
+    "ownershipForm": "Private Enterprise",
+    "workingHours": "3"
+  },
+  {
+    "title": "MOYO",
+    "address": "Вул. Рівненська 9",
+    "phoneNumber": "+380931234567",
+    "specialization": "Electronic",
+    "ownershipForm": "Private Enterprise",
+    "workingHours": "3"
+  },
+  {
+    "title": "StreatWear",
+    "address": "Вул. Велика Панасівка 66",
+    "phoneNumber": "+380931234567",
+    "specialization": "Clothes",
+    "ownershipForm": "Limited Liability Company",
+    "workingHours": "+380632345678"
+  },
+  {
+    "title": "VOVK",
+    "address": "Вул. Тобольска 21",
+    "phoneNumber": "+380931234567",
+    "specialization": "Clothes",
+    "ownershipForm": "Limited Liability Company",
+    "workingHours": "+380682345678"
+  }
 ]
 
