@@ -16,7 +16,16 @@ namespace Довідник_покупця__курсова_ООП__winforms
     public partial class Form1 : Form
     {
         private List<Shop> shoplist;
-        private List<CheckBox> checkBoxes = new List<CheckBox>();
+        private List<Shop> selectedShops = new List<Shop>();
+        private List<System.Windows.Forms.CheckBox> checkBoxes = new List<System.Windows.Forms.CheckBox>();
+
+        private Button loadToTxtBtn;
+        private Button applySortBtn;
+
+        private ComboBox sortByBox;
+        private ComboBox sortOrderBox;
+
+        private Label sortLabel;
         private Panel cardsPanel;
 
         public Form1()
@@ -33,11 +42,13 @@ namespace Довідник_покупця__курсова_ООП__winforms
                 string jsonData = File.ReadAllText(jsonFilePath);
                 shoplist = JsonConvert.DeserializeObject<List<Shop>>(jsonData);
 
+                CreateControls();
+
                 cardsPanel = new FlowLayoutPanel();
                 cardsPanel.AutoScroll = true;
                 cardsPanel.BackColor = Color.Transparent;
-                cardsPanel.Dock = DockStyle.Left;
-                cardsPanel.Width = this.ClientSize.Width / 2;
+                cardsPanel.Dock = DockStyle.Right;
+                cardsPanel.Width = this.ClientSize.Width * 2 / 3;
                 this.Controls.Add(cardsPanel);
 
                 AddShopCardsToPanel(shoplist);
@@ -48,9 +59,43 @@ namespace Довідник_покупця__курсова_ООП__winforms
             }
         }
 
+        private void CreateControls()
+        {
+            loadToTxtBtn = new Button();
+            loadToTxtBtn.Text = "Load cards to txt";
+            loadToTxtBtn.Cursor = Cursors.Hand;
+            loadToTxtBtn.Size = new System.Drawing.Size(150, 60);
+            loadToTxtBtn.Click += LoadToTxtBtn_Click;
+            loadToTxtBtn.Location = new Point(20, (this.ClientSize.Height - loadToTxtBtn.Height) / 3);
+            this.Controls.Add(loadToTxtBtn);
+
+            sortLabel = new Label();
+            sortLabel.Text = "Sort cards";
+            sortLabel.Font = new Font("Arial", 12);
+            sortLabel.Location = new Point(20, loadToTxtBtn.Bottom + 10);
+            this.Controls.Add(sortLabel);
+
+            sortByBox = new ComboBox();
+            sortByBox.Items.AddRange(typeof(Shop).GetProperties().Select(p => p.Name).ToArray());
+            sortByBox.Location = new Point(20, sortLabel.Bottom + 10);
+            this.Controls.Add(sortByBox);
+
+            sortOrderBox = new ComboBox();
+            sortOrderBox.Items.AddRange(new string[] { "Ascending", "Descending" });
+            sortOrderBox.Location = new Point(20, sortByBox.Bottom + 10);
+            this.Controls.Add(sortOrderBox);
+
+            applySortBtn = new Button();
+            applySortBtn.Text = "Apply sorting";
+            applySortBtn.Cursor = Cursors.Hand;
+            applySortBtn.Click += ApplySortBtn_Click;
+            applySortBtn.Location = new Point(20, sortOrderBox.Bottom + 10);
+            this.Controls.Add(applySortBtn);
+        }
+
         private void AddShopCardsToPanel(List<Shop> shops)
         {
-            int columnWidth = (cardsPanel.Width - 50);
+            int columnWidth = (cardsPanel.Width - 50) / 2;
 
             foreach (var shop in shops)
             {
@@ -107,6 +152,16 @@ namespace Довідник_покупця__курсова_ООП__winforms
 
                 cardsPanel.Controls.Add(cardPanel);
             }
+        }
+
+        private void LoadToTxtBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ApplySortBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
