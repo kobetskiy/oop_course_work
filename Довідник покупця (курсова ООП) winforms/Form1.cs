@@ -13,8 +13,8 @@ namespace Довідник_покупця__курсова_ООП__winforms
     public partial class Form1 : Form
     {
         private List<Shop> shoplist;
-        private List<Shop> selectedShops = new List<Shop>();
-        private List<CheckBox> checkBoxes = new List<CheckBox>();
+        private readonly List<Shop> selectedShops = new List<Shop>();
+        private readonly List<CheckBox> checkBoxes = new List<CheckBox>();
 
         private Button loadToTxtBtn;
         private Button applySortBtn;
@@ -62,7 +62,8 @@ namespace Довідник_покупця__курсова_ООП__winforms
 
             sortLabel = new Label();
             sortLabel.Text = "Sort and save cards";
-            sortLabel.Font = new Font("Arial", 12, FontStyle.Bold);
+            sortLabel.Width = 200;
+            sortLabel.Font = new Font("Calibri", 14, FontStyle.Bold);
             sortLabel.Location = new Point(posX, (ClientSize.Height - sortLabel.Height) / 3);
             Controls.Add(sortLabel);
 
@@ -81,7 +82,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
             applySortBtn = new Button();
             applySortBtn.Text = "Apply sorting";
             applySortBtn.Cursor = Cursors.Hand;
-            applySortBtn.Location = new Point(posX, sortOrderBox.Bottom + 10);
+            applySortBtn.Location = new Point(posX, sortOrderBox.Bottom + 15);
             applySortBtn.Width = 200;
             applySortBtn.Height = 30;
             applySortBtn.Click += ApplySortBtn_Click;
@@ -100,7 +101,6 @@ namespace Довідник_покупця__курсова_ООП__winforms
         private void ApplyStyles()
         {
             BackColor = Color.FromArgb(240, 240, 240);
-            Font = new Font("Segoe UI", 10);
 
             foreach (Control ctrl in Controls)
             {
@@ -131,7 +131,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
             {
                 Panel cardPanel = new Panel();
                 cardPanel.BorderStyle = BorderStyle.FixedSingle;
-                cardPanel.Size = new System.Drawing.Size(columnWidth, 150);
+                cardPanel.Size = new Size(columnWidth, 150);
                 cardPanel.Location = new Point(10, 10);
                 cardPanel.BackColor = Color.LightGray;
 
@@ -257,7 +257,40 @@ namespace Довідник_покупця__курсова_ООП__winforms
 
         private void ApplySortBtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string selectedField = sortByBox.SelectedItem?.ToString();
+                string selectedSortOrder = sortOrderBox.SelectedItem?.ToString();
 
+                if (selectedField == null || selectedSortOrder == null)
+                {
+                    MessageBox.Show("Please select sorting criteria.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                var property = typeof(Shop).GetProperty(selectedField);
+                if (property == null)
+                {
+                    MessageBox.Show("Invalid sorting criteria.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (selectedSortOrder == "Ascending")
+                {
+                    shoplist = shoplist.OrderBy(x => property.GetValue(x)).ToList();
+                }
+                else
+                {
+                    shoplist = shoplist.OrderByDescending(x => property.GetValue(x)).ToList();
+                }
+
+                cardsPanel.Controls.Clear();
+                AddShopCardsToPanel(shoplist);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

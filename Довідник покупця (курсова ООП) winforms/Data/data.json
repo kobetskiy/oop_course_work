@@ -29,7 +29,7 @@
     "phoneNumber": "+380442345678",
     "specialization": "Sport",
     "ownershipForm": "Private Enterprise",
-    "workingHours": "3"
+    "workingHours": "7:00 - 20:00. Пн-Нд"
   },
   {
     "title": "SportMarket",
@@ -37,7 +37,7 @@
     "phoneNumber": "+380992345678",
     "specialization": "Sport",
     "ownershipForm": "Private Enterprise",
-    "workingHours": "3"
+    "workingHours": "8:00 - 22:30. Пн-Нд"
   },
   {
     "title": "Gomez",
@@ -45,7 +45,7 @@
     "phoneNumber": "+380972345678",
     "specialization": "Sport",
     "ownershipForm": "Limited Liability Company",
-    "workingHours": "3"
+    "workingHours": "9:00 - 21:00. Пн-Пт"
   },
   {
     "title": "Stylus",
@@ -53,7 +53,7 @@
     "phoneNumber": "+380322345678",
     "specialization": "Electronic",
     "ownershipForm": "Private Enterprise",
-    "workingHours": "3"
+    "workingHours": "8:00 - 23:00. Пн-Сб"
   },
   {
     "title": "MOYO",
@@ -61,7 +61,7 @@
     "phoneNumber": "+380931234567",
     "specialization": "Electronic",
     "ownershipForm": "Private Enterprise",
-    "workingHours": "3"
+    "workingHours": "9:00 - 22:00. Пн-Сб"
   },
   {
     "title": "StreatWear",
@@ -69,7 +69,7 @@
     "phoneNumber": "+380931234567",
     "specialization": "Clothes",
     "ownershipForm": "Limited Liability Company",
-    "workingHours": "+380632345678"
+    "workingHours": "9:00 - 21:00. Пн-Нд"
   },
   {
     "title": "VOVK",
@@ -77,7 +77,7 @@
     "phoneNumber": "+380931234567",
     "specialization": "Clothes",
     "ownershipForm": "Limited Liability Company",
-    "workingHours": "+380682345678"
+    "workingHours": "7:00 - 22:00. Пн-Нд"
   }
 ]
 
