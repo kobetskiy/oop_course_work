@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Довідник_покупця__курсова_ООП__winforms.Models;
@@ -33,6 +30,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
             InitializeComponent();
             LoadShopCards();
             CreateControls();
+            ApplyStyles();
         }
 
         private void LoadShopCards()
@@ -47,7 +45,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
                 cardsPanel.AutoScroll = true;
                 cardsPanel.BackColor = Color.Transparent;
                 cardsPanel.Dock = DockStyle.Right;
-                cardsPanel.Width = this.ClientSize.Width * 2 / 3;
+                cardsPanel.Width = ClientSize.Width * 2 / 3;
                 Controls.Add(cardsPanel);
 
                 AddShopCardsToPanel(shoplist);
@@ -60,36 +58,69 @@ namespace Довідник_покупця__курсова_ООП__winforms
 
         private void CreateControls()
         {
-            loadToTxtBtn = new Button();
-            loadToTxtBtn.Text = "Load cards to txt";
-            loadToTxtBtn.Cursor = Cursors.Hand;
-            loadToTxtBtn.Size = new System.Drawing.Size(150, 60);
-            loadToTxtBtn.Click += LoadToTxtBtn_Click;
-            loadToTxtBtn.Location = new Point(20, (this.ClientSize.Height - loadToTxtBtn.Height) / 3);
-            this.Controls.Add(loadToTxtBtn);
+            int posX = 40;
 
             sortLabel = new Label();
-            sortLabel.Text = "Sort cards";
-            sortLabel.Font = new Font("Arial", 12);
-            sortLabel.Location = new Point(20, loadToTxtBtn.Bottom + 10);
-            this.Controls.Add(sortLabel);
+            sortLabel.Text = "Sort and save cards";
+            sortLabel.Font = new Font("Arial", 12, FontStyle.Bold);
+            sortLabel.Location = new Point(posX, (ClientSize.Height - sortLabel.Height) / 3);
+            Controls.Add(sortLabel);
 
             sortByBox = new ComboBox();
             sortByBox.Items.AddRange(typeof(Shop).GetProperties().Select(p => p.Name).ToArray());
-            sortByBox.Location = new Point(20, sortLabel.Bottom + 10);
-            this.Controls.Add(sortByBox);
+            sortByBox.Location = new Point(posX, sortLabel.Bottom + 10);
+            sortByBox.Width = 200;
+            Controls.Add(sortByBox);
 
             sortOrderBox = new ComboBox();
             sortOrderBox.Items.AddRange(new string[] { "Ascending", "Descending" });
-            sortOrderBox.Location = new Point(20, sortByBox.Bottom + 10);
-            this.Controls.Add(sortOrderBox);
+            sortOrderBox.Location = new Point(posX, sortByBox.Bottom + 10);
+            sortOrderBox.Width = 200;
+            Controls.Add(sortOrderBox);
 
             applySortBtn = new Button();
             applySortBtn.Text = "Apply sorting";
             applySortBtn.Cursor = Cursors.Hand;
+            applySortBtn.Location = new Point(posX, sortOrderBox.Bottom + 10);
+            applySortBtn.Width = 200;
+            applySortBtn.Height = 30;
             applySortBtn.Click += ApplySortBtn_Click;
-            applySortBtn.Location = new Point(20, sortOrderBox.Bottom + 10);
-            this.Controls.Add(applySortBtn);
+            Controls.Add(applySortBtn);
+
+            loadToTxtBtn = new Button();
+            loadToTxtBtn.Text = "Load cards to txt";
+            loadToTxtBtn.Cursor = Cursors.Hand;
+            loadToTxtBtn.Location = new Point(posX, applySortBtn.Bottom + 10);
+            loadToTxtBtn.Width = 200;
+            loadToTxtBtn.Height = 50;
+            loadToTxtBtn.Click += LoadToTxtBtn_Click;
+            Controls.Add(loadToTxtBtn);
+        }
+
+        private void ApplyStyles()
+        {
+            BackColor = Color.FromArgb(240, 240, 240);
+            Font = new Font("Segoe UI", 10);
+
+            foreach (Control ctrl in Controls)
+            {
+                if (ctrl is Button button)
+                {
+                    button.BackColor = Color.FromArgb(41, 128, 185);
+                    button.ForeColor = Color.White;
+                    button.FlatStyle = FlatStyle.Flat;
+                    button.FlatAppearance.BorderSize = 0;
+                }
+                else if (ctrl is ComboBox comboBox)
+                {
+                    comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+                    comboBox.BackColor = Color.White;
+                }
+                else if (ctrl is Label label)
+                {
+                    label.ForeColor = Color.FromArgb(44, 62, 80);
+                }
+            }
         }
 
         private void AddShopCardsToPanel(List<Shop> shops)
@@ -168,7 +199,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
                     {
                         if (control is Panel cardPanel)
                         {
-                            System.Windows.Forms.CheckBox checkBox = cardPanel.Controls.OfType<System.Windows.Forms.CheckBox>().FirstOrDefault();
+                            CheckBox checkBox = cardPanel.Controls.OfType<System.Windows.Forms.CheckBox>().FirstOrDefault();
                             if (checkBox != null && checkBox.Checked)
                             {
                                 selectedShops.Add((Shop)checkBox.Tag);
