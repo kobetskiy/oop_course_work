@@ -21,3 +21,4 @@ C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курс
 C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\obj\Debug\Довідник покупця (курсова ООП) winforms.exe
 C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\obj\Debug\Довідник покупця (курсова ООП) winforms.pdb
 C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\obj\Debug\Довідник.940CCEB7.Up2Date
+C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\obj\Debug\Довідник_покупця__курсова_ООП__winforms.Forms.LoginForm.resources

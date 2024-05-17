@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using Довідник_покупця__курсова_ООП__winforms.Forms;
 using Довідник_покупця__курсова_ООП__winforms.Models;
 
 namespace Довідник_покупця__курсова_ООП__winforms
@@ -18,6 +19,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
 
         private Button loadToTxtBtn;
         private Button applySortBtn;
+        private Button switchToAdminBtn;
 
         private ComboBox sortByBox;
         private ComboBox sortOrderBox;
@@ -60,6 +62,16 @@ namespace Довідник_покупця__курсова_ООП__winforms
         {
             int posX = 40;
 
+            switchToAdminBtn = new Button();
+            switchToAdminBtn.Text = "Switch to admin panel";
+            switchToAdminBtn.Cursor = Cursors.Hand;
+            switchToAdminBtn.Location = new Point(posX, 10);
+            switchToAdminBtn.BackColor = Color.Gray;
+            switchToAdminBtn.Width = 200;
+            switchToAdminBtn.Height = 30;
+            switchToAdminBtn.Click += SwitchToAdminBtn;
+            Controls.Add(switchToAdminBtn);
+
             sortLabel = new Label();
             sortLabel.Text = "Sort and save cards";
             sortLabel.Width = 200;
@@ -83,6 +95,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
             applySortBtn.Text = "Apply sorting";
             applySortBtn.Cursor = Cursors.Hand;
             applySortBtn.Location = new Point(posX, sortOrderBox.Bottom + 15);
+            applySortBtn.BackColor = Color.FromArgb(41, 128, 185);
             applySortBtn.Width = 200;
             applySortBtn.Height = 30;
             applySortBtn.Click += ApplySortBtn_Click;
@@ -92,6 +105,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
             loadToTxtBtn.Text = "Load cards to txt";
             loadToTxtBtn.Cursor = Cursors.Hand;
             loadToTxtBtn.Location = new Point(posX, applySortBtn.Bottom + 10);
+            loadToTxtBtn.BackColor = Color.FromArgb(41, 128, 185);
             loadToTxtBtn.Width = 200;
             loadToTxtBtn.Height = 50;
             loadToTxtBtn.Click += LoadToTxtBtn_Click;
@@ -101,12 +115,12 @@ namespace Довідник_покупця__курсова_ООП__winforms
         private void ApplyStyles()
         {
             BackColor = Color.FromArgb(240, 240, 240);
+            Font = new Font("Calibri", 11);
 
             foreach (Control ctrl in Controls)
             {
                 if (ctrl is Button button)
                 {
-                    button.BackColor = Color.FromArgb(41, 128, 185);
                     button.ForeColor = Color.White;
                     button.FlatStyle = FlatStyle.Flat;
                     button.FlatAppearance.BorderSize = 0;
@@ -236,6 +250,13 @@ namespace Довідник_покупця__курсова_ООП__winforms
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void SwitchToAdminBtn(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            Hide();
         }
 
         private void SaveDataToTxtFile(string filePath, List<Shop> data)
