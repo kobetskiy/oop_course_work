@@ -17,7 +17,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
     {
         private List<Shop> shoplist;
         private List<Shop> selectedShops = new List<Shop>();
-        private List<System.Windows.Forms.CheckBox> checkBoxes = new List<System.Windows.Forms.CheckBox>();
+        private List<CheckBox> checkBoxes = new List<CheckBox>();
 
         private Button loadToTxtBtn;
         private Button applySortBtn;
@@ -32,6 +32,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
         {
             InitializeComponent();
             LoadShopCards();
+            CreateControls();
         }
 
         private void LoadShopCards()
@@ -42,14 +43,12 @@ namespace Довідник_покупця__курсова_ООП__winforms
                 string jsonData = File.ReadAllText(jsonFilePath);
                 shoplist = JsonConvert.DeserializeObject<List<Shop>>(jsonData);
 
-                CreateControls();
-
                 cardsPanel = new FlowLayoutPanel();
                 cardsPanel.AutoScroll = true;
                 cardsPanel.BackColor = Color.Transparent;
                 cardsPanel.Dock = DockStyle.Right;
                 cardsPanel.Width = this.ClientSize.Width * 2 / 3;
-                this.Controls.Add(cardsPanel);
+                Controls.Add(cardsPanel);
 
                 AddShopCardsToPanel(shoplist);
             }
@@ -156,7 +155,73 @@ namespace Довідник_покупця__курсова_ООП__winforms
 
         private void LoadToTxtBtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string selectedField = sortByBox.SelectedItem?.ToString();
+                string selectedSortOrder = sortOrderBox.SelectedItem?.ToString();
 
+                if ((selectedField != null && selectedSortOrder != null) || (selectedField == null && selectedSortOrder == null))
+                {
+                    selectedShops.Clear();
+
+                    foreach (Control control in cardsPanel.Controls)
+                    {
+                        if (control is Panel cardPanel)
+                        {
+                            System.Windows.Forms.CheckBox checkBox = cardPanel.Controls.OfType<System.Windows.Forms.CheckBox>().FirstOrDefault();
+                            if (checkBox != null && checkBox.Checked)
+                            {
+                                selectedShops.Add((Shop)checkBox.Tag);
+                            }
+                        }
+                    }
+
+                    if (selectedShops.Count == 0)
+                    {
+                        MessageBox.Show("Please select at least one shop.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    string filePath;
+                    if (selectedField != null && selectedSortOrder != null)
+                    {
+                        filePath = $@"C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\data_{selectedField}_{selectedSortOrder}.txt";
+                    }
+                    else
+                    {
+                        filePath = $@"C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\Data\data.txt";
+                    }
+
+                    SaveDataToTxtFile(filePath, selectedShops);
+
+                    MessageBox.Show("Data successfully saved to file.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Please select both sorting criteria or none.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SaveDataToTxtFile(string filePath, List<Shop> data)
+        {
+            using (StreamWriter writer = new StreamWriter(filePath, false))
+            {
+                foreach (var shop in data)
+                {
+                    writer.WriteLine($"Title: {shop.title}");
+                    writer.WriteLine($"Address: {shop.address}");
+                    writer.WriteLine($"Phone Number: {shop.phoneNumber}");
+                    writer.WriteLine($"Specialization: {shop.specialization}");
+                    writer.WriteLine($"Ownership Form: {shop.ownershipForm}");
+                    writer.WriteLine($"Working Hours: {shop.workingHours}");
+                    writer.WriteLine();
+                }
+            }
         }
 
         private void ApplySortBtn_Click(object sender, EventArgs e)
