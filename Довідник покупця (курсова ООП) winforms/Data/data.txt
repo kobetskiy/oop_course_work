@@ -1,21 +1,7 @@
-Title: Посад
-Address: Вул. Миру 143
-Phone Number: +380931234567
-Specialization: Food
-Ownership Form: Limited Liability Company
-Working Hours: 7:00 - 23:00. Пн-Нд
-
-Title: Alistar Sport
-Address: Вул. Броварська 1
-Phone Number: +380442345678
-Specialization: Sport
-Ownership Form: Private Enterprise
-Working Hours: 3
-
-Title: Gomez
-Address: Вул. Мала Гончарівка 47
-Phone Number: +380972345678
-Specialization: Sport
-Ownership Form: Limited Liability Company
-Working Hours: 3
+Title: asdasdasdas
+Address: 
+Phone Number: 
+Specialization: 
+Ownership Form: 
+Working Hours: 
 

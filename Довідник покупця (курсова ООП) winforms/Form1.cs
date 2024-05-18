@@ -73,7 +73,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
             Controls.Add(switchToAdminBtn);
 
             sortLabel = new Label();
-            sortLabel.Text = "Sort and save cards";
+            sortLabel.Text = "Sort and save shops";
             sortLabel.Width = 200;
             sortLabel.Font = new Font("Calibri", 14, FontStyle.Bold);
             sortLabel.Location = new Point(posX, (ClientSize.Height - sortLabel.Height) / 3);

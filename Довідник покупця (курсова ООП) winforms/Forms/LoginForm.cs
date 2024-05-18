@@ -29,7 +29,6 @@ namespace Довідник_покупця__курсова_ООП__winforms.Forms
         private void CreateLoginControls()
         {
             int posX = 20;
-            int posY = 20;
 
             welcomeLabel = new Label();
             welcomeLabel.Text = "Welcome!";
@@ -104,8 +103,8 @@ namespace Довідник_покупця__курсова_ООП__winforms.Forms
 
             if (username == "admin" && password == "12345")
             {
-                Form1 mainForm = new Form1();
-                mainForm.Show();
+                AdminPanel adminPanel = new AdminPanel();
+                adminPanel.Show();
                 Hide();
             }
             else

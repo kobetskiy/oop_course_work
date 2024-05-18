@@ -24,7 +24,7 @@
     "workingHours": "7:00 - 23:00. Пн-Нд"
   },
   {
-    "title": "Alistar Sport",
+    "title": "Sportie",
     "address": "Вул. Броварська 1",
     "phoneNumber": "+380442345678",
     "specialization": "Sport",
@@ -80,4 +80,3 @@
     "workingHours": "7:00 - 22:00. Пн-Нд"
   }
 ]
-

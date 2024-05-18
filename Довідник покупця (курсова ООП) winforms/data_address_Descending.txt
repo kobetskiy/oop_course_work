@@ -1,7 +1,7 @@
-Title: Сільпо
-Address: Вул. Павлова 4
-Phone Number: +380671234567
-Specialization: Food
-Ownership Form: Limited Liability Company
-Working Hours: 8:00 - 22:00. Пн-Нд
+Title: SportMarket
+Address: Вул. Курбаса 51
+Phone Number: +380992345678
+Specialization: Sport
+Ownership Form: Private Enterprise
+Working Hours: 8:00 - 22:30. Пн-Нд
 
