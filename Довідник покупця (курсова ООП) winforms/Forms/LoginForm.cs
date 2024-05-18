@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Довідник_покупця__курсова_ООП__winforms.Services;
 
 namespace Довідник_покупця__курсова_ООП__winforms.Forms
 {
@@ -30,43 +31,55 @@ namespace Довідник_покупця__курсова_ООП__winforms.Forms
         {
             int posX = 20;
 
-            welcomeLabel = new Label();
-            welcomeLabel.Text = "Welcome!";
-            welcomeLabel.Width = 300;
-            welcomeLabel.Font = new Font("Calibri", 24);
-            welcomeLabel.Location = new Point(110, 40);
+            welcomeLabel = new Label
+            {
+                Text = "Welcome!",
+                Width = 300,
+                Font = new Font("Calibri", 24),
+                Location = new Point(120, 40)
+            };
             Controls.Add(welcomeLabel);
 
-            usernameLabel = new Label();
-            usernameLabel.Text = "Username:";
-            usernameLabel.Width = 60;
-            usernameLabel.Location = new Point(posX, welcomeLabel.Bottom + 35);
+            usernameLabel = new Label
+            {
+                Text = "Username:",
+                Width = 60,
+                Location = new Point(posX, welcomeLabel.Bottom + 35)
+            };
             Controls.Add(usernameLabel);
 
-            usernameTextBox = new TextBox();
-            usernameTextBox.Location = new Point(posX + 80, welcomeLabel.Bottom + 35);
-            usernameTextBox.Width = 230;
+            usernameTextBox = new TextBox
+            {
+                Location = new Point(posX + 80, welcomeLabel.Bottom + 35),
+                Width = 230
+            };
             Controls.Add(usernameTextBox);
 
-            passwordLabel = new Label();
-            passwordLabel.Text = "Password:";
-            passwordLabel.Width = 60;
-            passwordLabel.Location = new Point(posX, usernameTextBox.Bottom + 10);
+            passwordLabel = new Label
+            {
+                Text = "Password:",
+                Width = 60,
+                Location = new Point(posX, usernameTextBox.Bottom + 10)
+            };
             Controls.Add(passwordLabel);
 
-            passwordTextBox = new TextBox();
-            passwordTextBox.Location = new Point(posX + 80, usernameTextBox.Bottom + 10);
-            passwordTextBox.Width = 230;
-            passwordTextBox.UseSystemPasswordChar = true;
+            passwordTextBox = new TextBox
+            {
+                Location = new Point(posX + 80, usernameTextBox.Bottom + 10),
+                Width = 230,
+                UseSystemPasswordChar = true
+            };
             Controls.Add(passwordTextBox);
 
-            loginButton = new Button();
-            loginButton.Text = "Login";
-            loginButton.Cursor = Cursors.Hand;
-            loginButton.Location = new Point(posX, passwordTextBox.Bottom + 30);
-            loginButton.BackColor = Color.FromArgb(41, 128, 185);
-            loginButton.Width = 310;
-            loginButton.Height = 30;
+            loginButton = new Button
+            {
+                Text = "Login",
+                Cursor = Cursors.Hand,
+                Location = new Point(posX, passwordTextBox.Bottom + 30),
+                BackColor = Color.FromArgb(41, 128, 185),
+                Width = 310,
+                Height = 30
+            };
             loginButton.Click += LoginButton_Click;
             Controls.Add(loginButton);
         }
@@ -98,19 +111,8 @@ namespace Довідник_покупця__курсова_ООП__winforms.Forms
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            string username = usernameTextBox.Text;
-            string password = passwordTextBox.Text;
-
-            if (username == "admin" && password == "12345")
-            {
-                AdminPanel adminPanel = new AdminPanel();
-                adminPanel.Show();
-                Hide();
-            }
-            else
-            {
-                MessageBox.Show("Invalid username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            LoginService loginService = new LoginService();
+            loginService.Login(this, usernameTextBox.Text, passwordTextBox.Text);
         }
 
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)

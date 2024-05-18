@@ -1,6 +1,6 @@
 ﻿namespace Довідник_покупця__курсова_ООП__winforms
 {
-    partial class Form1
+    partial class ClientForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.

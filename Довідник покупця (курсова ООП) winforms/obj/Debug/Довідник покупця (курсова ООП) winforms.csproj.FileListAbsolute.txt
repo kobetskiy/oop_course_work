@@ -14,7 +14,6 @@ C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курс
 C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\obj\Debug\Довідник покупця (курсова ООП) winforms.csproj.AssemblyReference.cache
-C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\obj\Debug\Довідник_покупця__курсова_ООП__winforms.Form1.resources
 C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\obj\Debug\Довідник_покупця__курсова_ООП__winforms.Properties.Resources.resources
 C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\obj\Debug\Довідник покупця (курсова ООП) winforms.csproj.GenerateResource.cache
 C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\obj\Debug\Довідник покупця (курсова ООП) winforms.csproj.CoreCompileInputs.cache
@@ -23,3 +22,4 @@ C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курс
 C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\obj\Debug\Довідник.940CCEB7.Up2Date
 C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\obj\Debug\Довідник_покупця__курсова_ООП__winforms.Forms.LoginForm.resources
 C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\obj\Debug\Довідник_покупця__курсова_ООП__winforms.Forms.AdminPanel.resources
+C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\obj\Debug\Довідник_покупця__курсова_ООП__winforms.ClientForm.resources

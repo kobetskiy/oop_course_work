@@ -7,6 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Довідник_покупця__курсова_ООП__winforms.Models;
+using Довідник_покупця__курсова_ООП__winforms.Services;
 
 namespace Довідник_покупця__курсова_ООП__winforms.Forms
 {
@@ -18,6 +19,8 @@ namespace Довідник_покупця__курсова_ООП__winforms.Forms
         private Button addButton;
         private Button deleteButton;
 
+        AdminService adminService = new AdminService();
+
         public AdminPanel()
         {
             InitializeComponent();
@@ -27,7 +30,7 @@ namespace Довідник_покупця__курсова_ООП__winforms.Forms
             ApplyStyles();
         }
 
-        private void LoadShopData()
+        public void LoadShopData()
         {
             try
             {
@@ -70,7 +73,7 @@ namespace Довідник_покупця__курсова_ООП__winforms.Forms
                 BackColor = Color.Gray,
                 FlatStyle = FlatStyle.Flat,
         };
-            backButton.Click += BackButton_Click;
+            backButton.Click += SwitchToClienBtn_Click;
 
             addButton = new Button
             {
@@ -140,48 +143,22 @@ namespace Довідник_покупця__курсова_ООП__winforms.Forms
 
         private void ShopDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            SaveData();
+            adminService.SaveData(shopList);
         }
 
-        private void BackButton_Click(object sender, EventArgs e)
+        private void SwitchToClienBtn_Click(object sender, EventArgs e)
         {
-            Form1 clienForm = new Form1();
-            clienForm.Show();
-            Hide();
+            adminService.SwitchToClienBtnOnClick(this);
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            Shop newShop = new Shop();
-            shopList.Add(newShop);
-            shopDataGridView.DataSource = null;
-            shopDataGridView.DataSource = shopList;
-            SaveData();
+            adminService.AddButtonOnClick(shopList, shopDataGridView);
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in shopDataGridView.SelectedRows)
-            {
-                shopList.Remove(row.DataBoundItem as Shop);
-            }
-            shopDataGridView.DataSource = null;  // Refresh DataGridView
-            shopDataGridView.DataSource = shopList;
-            SaveData();
-        }
-
-        private void SaveData()
-        {
-            try
-            {
-                string jsonFilePath = @"C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\Data\data.json";
-                string jsonData = JsonConvert.SerializeObject(shopList, Formatting.Indented);
-                File.WriteAllText(jsonFilePath, jsonData);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show($"An error occurred while saving data: {e.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            adminService.DeleteButtonOnClick(shopList, shopDataGridView);
         }
 
         private void AdminPanel_FormClosed(object sender, FormClosedEventArgs e)
