@@ -44,8 +44,6 @@ namespace Довідник_покупця__курсова_ООП__winforms.Servi
                     }
 
                     SaveDataToTxtFile(selectedShops);
-
-                    MessageBox.Show("Data successfully saved to file.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -83,6 +81,7 @@ namespace Довідник_покупця__курсова_ООП__winforms.Servi
                             writer.WriteLine($"Working Hours: {shop.WorkingHours}");
                             writer.WriteLine();
                         }
+                        MessageBox.Show("Data successfully saved to file.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
