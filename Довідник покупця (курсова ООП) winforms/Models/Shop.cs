@@ -8,11 +8,11 @@ namespace Довідник_покупця__курсова_ООП__winforms.Model
 {
     public class Shop
     {
-        public string title { get; set; }
-        public string address { get; set; }
-        public string phoneNumber { get; set; }
-        public string specialization { get; set; }
-        public string ownershipForm { get; set; }
-        public string workingHours { get; set; }
+        public string Title { get; set; }
+        public string Address { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Specialization { get; set; }
+        public string OwnershipForm { get; set; }
+        public string WorkingHours { get; set; }
     }
 }

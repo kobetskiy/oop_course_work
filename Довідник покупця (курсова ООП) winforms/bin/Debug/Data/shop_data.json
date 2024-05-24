@@ -1,0 +1,82 @@
+[
+  {
+    "Title": "АТБ",
+    "Address": "Shevchenka 19 Street",
+    "PhoneNumber": "+380501234567",
+    "Specialization": "Food",
+    "OwnershipForm": "Limited Liability Company",
+    "WorkingHours": "7 am - 10 pm. Mon-Su"
+  },
+  {
+    "Title": "Сільпо",
+    "Address": "Pavlova 4 Street",
+    "PhoneNumber": "+380671234567",
+    "Specialization": "Food",
+    "OwnershipForm": "Limited Liability Company",
+    "WorkingHours": "8 am - 10 pm. Mon-Su"
+  },
+  {
+    "Title": "Посад",
+    "Address": "Miru 146 Street",
+    "PhoneNumber": "+380931234567",
+    "Specialization": "Food",
+    "OwnershipForm": "Limited Liability Company",
+    "WorkingHours": "7 am - 11 pm. Mon-Su"
+  },
+  {
+    "Title": "Sportie",
+    "Address": "Brovarska 9 Street",
+    "PhoneNumber": "+380442345678",
+    "Specialization": "Sport",
+    "OwnershipForm": "Private Enterprise",
+    "WorkingHours": "7 am - 8 pm. Mon-Su"
+  },
+  {
+    "Title": "SportMarket",
+    "Address": "Kurbasa 51 Street",
+    "PhoneNumber": "+380992345678",
+    "Specialization": "Sport",
+    "OwnershipForm": "Private Enterprise",
+    "WorkingHours": "8 am - 10:30 pm. Mon-Su"
+  },
+  {
+    "Title": "Gomez",
+    "Address": "Mala Honcharivka 85 Street",
+    "PhoneNumber": "+380972345678",
+    "Specialization": "Sport",
+    "OwnershipForm": "Limited Liability Company",
+    "WorkingHours": "9 am - 9 pm. Mon-Fr"
+  },
+  {
+    "Title": "Stylus",
+    "Address": "Volonterska 86a Street",
+    "PhoneNumber": "+380322345678",
+    "Specialization": "Electronic",
+    "OwnershipForm": "Private Enterprise",
+    "WorkingHours": "8 am - 11 pm. Mon-Sa"
+  },
+  {
+    "Title": "MOYO",
+    "Address": "Rivnenska 9 Street",
+    "PhoneNumber": "+380931234567",
+    "Specialization": "Electronic",
+    "OwnershipForm": "Private Enterprise",
+    "WorkingHours": "9 am - 10 pm. Mon-Sa"
+  },
+  {
+    "Title": "StreatWear",
+    "Address": "Velika Panasivka 66 Street",
+    "PhoneNumber": "+380931234567",
+    "Specialization": "Clothes",
+    "OwnershipForm": "Limited Liability Company",
+    "WorkingHours": "9 am - 9 pm. Mon-Su"
+  },
+  {
+    "Title": "VOVK",
+    "Address": "Tobolska 21 Street",
+    "PhoneNumber": "+380931234567",
+    "Specialization": "Clothes",
+    "OwnershipForm": "Limited Liability Company",
+    "WorkingHours": "7 am - 10 pm. Mon-Su"
+  }
+]

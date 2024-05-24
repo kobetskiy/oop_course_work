@@ -43,16 +43,6 @@ namespace Довідник_покупця__курсова_ООП__winforms.Servi
                         return;
                     }
 
-                    string filePath;
-                    if (selectedField != null && selectedSortOrder != null)
-                    {
-                        filePath = $@"C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\data_{selectedField}_{selectedSortOrder}.txt";
-                    }
-                    else
-                    {
-                        filePath = $@"C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\Data\data.txt";
-                    }
-
                     SaveDataToTxtFile(selectedShops);
 
                     MessageBox.Show("Data successfully saved to file.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -85,12 +75,12 @@ namespace Довідник_покупця__курсова_ООП__winforms.Servi
                     {
                         foreach (var shop in data)
                         {
-                            writer.WriteLine($"Title: {shop.title}");
-                            writer.WriteLine($"Address: {shop.address}");
-                            writer.WriteLine($"Phone Number: {shop.phoneNumber}");
-                            writer.WriteLine($"Specialization: {shop.specialization}");
-                            writer.WriteLine($"Ownership Form: {shop.ownershipForm}");
-                            writer.WriteLine($"Working Hours: {shop.workingHours}");
+                            writer.WriteLine($"Title: {shop.Title}");
+                            writer.WriteLine($"Address: {shop.Address}");
+                            writer.WriteLine($"Phone Number: {shop.PhoneNumber}");
+                            writer.WriteLine($"Specialization: {shop.Specialization}");
+                            writer.WriteLine($"Ownership Form: {shop.OwnershipForm}");
+                            writer.WriteLine($"Working Hours: {shop.WorkingHours}");
                             writer.WriteLine();
                         }
                     }

@@ -22,6 +22,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
         private Button applySortBtn;
         private Button switchToAdminBtn;
 
+
         private ComboBox sortByBox;
         private ComboBox sortOrderBox;
 
@@ -42,7 +43,8 @@ namespace Довідник_покупця__курсова_ООП__winforms
         {
             try
             {
-                string jsonFilePath = @"C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\Data\data.json";
+                // string jsonFilePath = @"C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\Data\data.json";
+                string jsonFilePath = "Data/shop_data.json";
                 string jsonData = File.ReadAllText(jsonFilePath);
                 shopList = JsonConvert.DeserializeObject<List<Shop>>(jsonData);
 
@@ -177,7 +179,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
                 Label titleLabel = new Label
                 {
                     AutoSize = true,
-                    Text = $"Title: {shop.title}",
+                    Text = $"Title: {shop.Title}",
                     Location = new Point(10, checkBox.Bottom + 5)
                 };
                 cardPanel.Controls.Add(titleLabel);
@@ -185,7 +187,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
                 Label addressLabel = new Label
                 {
                     AutoSize = true,
-                    Text = $"Address: {shop.address}",
+                    Text = $"Address: {shop.Address}",
                     Location = new Point(10, titleLabel.Bottom + 5)
                 };
                 cardPanel.Controls.Add(addressLabel);
@@ -193,7 +195,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
                 Label phoneLabel = new Label
                 {
                     AutoSize = true,
-                    Text = $"Phone Number: {shop.phoneNumber}",
+                    Text = $"Phone Number: {shop.PhoneNumber}",
                     Location = new Point(10, addressLabel.Bottom + 5)
                 };
                 cardPanel.Controls.Add(phoneLabel);
@@ -201,7 +203,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
                 Label specLabel = new Label
                 {
                     AutoSize = true,
-                    Text = $"Specialization: {shop.specialization}",
+                    Text = $"Specialization: {shop.Specialization}",
                     Location = new Point(10, phoneLabel.Bottom + 5)
                 };
                 cardPanel.Controls.Add(specLabel);
@@ -209,7 +211,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
                 Label ownerLabel = new Label
                 {
                     AutoSize = true,
-                    Text = $"Ownership Form: {shop.ownershipForm}",
+                    Text = $"Ownership Form: {shop.OwnershipForm}",
                     Location = new Point(10, specLabel.Bottom + 5)
                 };
                 cardPanel.Controls.Add(ownerLabel);
@@ -217,7 +219,7 @@ namespace Довідник_покупця__курсова_ООП__winforms
                 Label hoursLabel = new Label
                 {
                     AutoSize = true,
-                    Text = $"Working Hours: {shop.workingHours}",
+                    Text = $"Working Hours: {shop.WorkingHours}",
                     Location = new Point(10, ownerLabel.Bottom + 5)
                 };
                 cardPanel.Controls.Add(hoursLabel);

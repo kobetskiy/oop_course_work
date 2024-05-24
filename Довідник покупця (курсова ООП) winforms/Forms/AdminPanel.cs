@@ -25,8 +25,7 @@ namespace Довідник_покупця__курсова_ООП__winforms.Forms
         {
             InitializeComponent();
             LoadShopData();
-            SetupDataGridView();
-            SetupButtons();
+            CreateControls();
             ApplyStyles();
         }
 
@@ -34,7 +33,7 @@ namespace Довідник_покупця__курсова_ООП__winforms.Forms
         {
             try
             {
-                string jsonFilePath = @"C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\Data\data.json";
+                string jsonFilePath = "Data/shop_data.json";
                 string jsonData = File.ReadAllText(jsonFilePath);
                 shopList = JsonConvert.DeserializeObject<List<Shop>>(jsonData);
             }
@@ -44,24 +43,7 @@ namespace Довідник_покупця__курсова_ООП__winforms.Forms
             }
         }
 
-        private void SetupDataGridView()
-        {
-            shopDataGridView = new DataGridView
-            {
-                Dock = DockStyle.Fill,
-                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
-                DataSource = shopList,
-                AllowUserToAddRows = false,
-                AllowUserToDeleteRows = false,
-                AllowUserToOrderColumns = true,
-                EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2
-            };
-
-            shopDataGridView.CellEndEdit += ShopDataGridView_CellEndEdit;
-            Controls.Add(shopDataGridView);
-        }
-
-        private void SetupButtons()
+        private void CreateControls()
         {
             backButton = new Button
             {
@@ -72,7 +54,7 @@ namespace Довідник_покупця__курсова_ООП__winforms.Forms
                 ForeColor = Color.White,
                 BackColor = Color.Gray,
                 FlatStyle = FlatStyle.Flat,
-        };
+            };
             backButton.Click += SwitchToClienBtn_Click;
 
             addButton = new Button
@@ -116,12 +98,25 @@ namespace Довідник_покупця__курсова_ООП__winforms.Forms
                 AutoSize = true
             };
 
+            shopDataGridView = new DataGridView
+            {
+                Dock = DockStyle.Fill,
+                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
+                DataSource = shopList,
+                AllowUserToAddRows = false,
+                AllowUserToDeleteRows = false,
+                AllowUserToOrderColumns = true,
+                EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2
+            };
+            shopDataGridView.CellEndEdit += ShopDataGridView_CellEndEdit;
+
             topPanel.Controls.Add(backButton);
             bottomPanel.Controls.Add(addButton);
             bottomPanel.Controls.Add(deleteButton);
 
             Controls.Add(topPanel);
             Controls.Add(bottomPanel);
+            Controls.Add(shopDataGridView);
         }
 
         private void ApplyStyles()

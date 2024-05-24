@@ -43,7 +43,7 @@ namespace Довідник_покупця__курсова_ООП__winforms.Servi
         {
             try
             {
-                string jsonFilePath = @"C:\Users\Admin\Desktop\уник\ооп\Довідник покупця (курсова ООП)\Довідник покупця (курсова ООП) winforms\Data\data.json";
+                string jsonFilePath = "Data/shop_data.json";
                 string jsonData = JsonConvert.SerializeObject(shopList, Formatting.Indented);
                 File.WriteAllText(jsonFilePath, jsonData);
             }
